@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="topo">
+      <div>
+        <p class="etiqueta">SISTEMA DE GERENCIAMENTO</p>
+        <h1>Cadastro de clientes</h1>
+        <p class="subtitulo">Cadastre, consulte e organize seus clientes em um só lugar.</p>
+      </div>
+      <div class="icone-topo" aria-hidden="true">♙</div>
+    </header>
+
+    <section class="resumo" aria-live="polite">
+      <div>
+        <span class="resumo-label">Clientes cadastrados</span>
+        <strong id="totalClientes">0</strong>
+      </div>
+      <span class="resumo-icone" aria-hidden="true">👥</span>
+    </section>
+
+    <section class="painel">
+      <div class="titulo-secao">
+        <div>
+          <h2 id="tituloFormulario">Cadastrar cliente</h2>
+          <p>Preencha os campos abaixo. Os campos com * são obrigatórios.</p>
+        </div>
+      </div>
+
+      <form id="formCliente">
+        <div class="campos">
+          <label class="campo campo-largo">
+            Nome completo *
+            <input type="text" id="nome" placeholder="Ex.: Maria da Silva" required>
+          </label>
+
+          <label class="campo">
+            E-mail *
+            <input type="email" id="email" placeholder="exemplo@email.com" required>
+          </label>
+
+          <label class="campo">
+            Telefone *
+            <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+          </label>
+
+          <label class="campo">
+            Cidade *
+            <input type="text" id="cidade" placeholder="Ex.: São Paulo" required>
+          </label>
+
+          <label class="campo">
+            CPF
+            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+          </label>
+        </div>
+
+        <div class="acoes-formulario">
+          <button type="submit" class="botao botao-principal" id="botaoSalvar">Cadastrar cliente</button>
+          <button type="button" class="botao botao-secundario escondido" id="botaoCancelar">Cancelar edição</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="painel">
+      <div class="titulo-lista">
+        <div>
+          <h2>Clientes cadastrados</h2>
+          <p>Pesquise e gerencie os registros.</p>
+        </div>
+        <button type="button" class="botao botao-perigo-claro" id="botaoLimparTudo">Limpar todos</button>
+      </div>
+
+      <div class="barra-ferramentas">
+        <label class="busca">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="pesquisa" placeholder="Pesquisar por nome ou e-mail...">
+        </label>
+        <button type="button" class="botao botao-secundario" id="botaoOrdenar">A–Z: ordem alfabética</button>
+      </div>
+
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Cidade</th>
+              <th>CPF</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="corpoTabela"></tbody>
+        </table>
+      </div>
+      <p id="mensagemVazia" class="mensagem-vazia">Nenhum cliente cadastrado ainda.</p>
+      <p class="rodape-nota">Os registros ficam salvos neste navegador por meio do LocalStorage.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
